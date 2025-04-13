@@ -11,6 +11,14 @@ type TcpScanner struct {
 	ports    uint
 }
 
+func NewTcpScanner(u string, p uint) *TcpScanner {
+	return &TcpScanner{
+		protocol: "tcp",
+		url:      u,
+		ports:    p,
+	}
+}
+
 func (t TcpScanner) TcpScan() {
 
 	fmt.Printf("Scanning %v...\n\n", t.url)
@@ -25,14 +33,4 @@ func (t TcpScanner) TcpScan() {
 		conn.Close()
 		fmt.Printf("%d open\n", i)
 	}
-}
-
-func (t TcpScanner) GatherContext() {
-	fmt.Print("Please enter the host to scan: ")
-	fmt.Scan(&t.url)
-	fmt.Print("Please enter the ports to scan: ")
-	fmt.Scan(&t.ports)
-
-	//currently only supporting tcp
-	t.protocol = "tcp"
 }

@@ -24,8 +24,7 @@ func main() {
 
 		switch choice {
 		case 1:
-			var scanner = scanners.TcpScanner{}
-			scanner.GatherContext()
+			var scanner = scanners.NewTcpScanner("scanme.nmap.org", 1024)
 			scanner.TcpScan()
 		default:
 			panic("invalid choice")
