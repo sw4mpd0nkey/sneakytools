@@ -39,5 +39,6 @@ func (t TcpScanner) TcpScan() {
 			fmt.Printf("%d open\n", j)
 		}(i)
 	}
+
 	wg.Wait()
 }
